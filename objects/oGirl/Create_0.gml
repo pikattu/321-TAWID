@@ -7,9 +7,9 @@ Patience = 100;
 MaxPatience = 100;
 
 AgeType = "young";
-VisionRange = 150;
+VisionRange = 900;
 Fatigue = 0;
-FatigueRate = 0.5;
+FatigueRate = 0.2;
 JaywalkTendency = 0.2;
 
 // Movement

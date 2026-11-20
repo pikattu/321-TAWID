@@ -39,6 +39,7 @@
     {"id":{"name":"oLola","path":"objects/oLola/oLola.yy",},},
     {"id":{"name":"oPedestrian","path":"objects/oPedestrian/oPedestrian.yy",},},
     {"id":{"name":"Day1","path":"rooms/Day1/Day1.yy",},},
+    {"id":{"name":"Day2","path":"rooms/Day2/Day2.yy",},},
     {"id":{"name":"bicycle_blue_drive_w","path":"sprites/bicycle_blue_drive_w/bicycle_blue_drive_w.yy",},},
     {"id":{"name":"sBakery","path":"sprites/sBakery/sBakery.yy",},},
     {"id":{"name":"sCafe","path":"sprites/sCafe/sCafe.yy",},},
@@ -70,6 +71,7 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
+    {"roomId":{"name":"Day2","path":"rooms/Day2/Day2.yy",},},
     {"roomId":{"name":"Day1","path":"rooms/Day1/Day1.yy",},},
   ],
   "templateType":"game",

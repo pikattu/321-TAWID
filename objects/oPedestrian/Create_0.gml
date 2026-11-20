@@ -40,4 +40,10 @@ CrossingSafe = false;
 RouteStage = "finding";
 CurrentCrosswalk = noone;
 
-JaywalkDecisionMade = true;
+JaywalkDecisionMade = false;
+
+// Crosswalk route
+CrosswalkRoute = [];
+CurrentRouteIndex = 0;
+// Maximum distance between crosswalks to consider them connected
+CrosswalkLinkDistance = 300;

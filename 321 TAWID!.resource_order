@@ -19,6 +19,7 @@
     {"name":"oGameManager","order":2,"path":"objects/oGameManager/oGameManager.yy",},
     {"name":"oLola","order":1,"path":"objects/oLola/oLola.yy",},
     {"name":"oPedestrian","order":4,"path":"objects/oPedestrian/oPedestrian.yy",},
+    {"name":"Day2","order":5,"path":"rooms/Day2/Day2.yy",},
     {"name":"bicycle_blue_drive_w","order":12,"path":"sprites/bicycle_blue_drive_w/bicycle_blue_drive_w.yy",},
     {"name":"sBakery","order":9,"path":"sprites/sBakery/sBakery.yy",},
     {"name":"sCafe","order":10,"path":"sprites/sCafe/sCafe.yy",},

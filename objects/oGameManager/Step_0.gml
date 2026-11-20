@@ -1,3 +1,4 @@
+
 // ==========================================
 // EDIT MODE
 // ==========================================
@@ -8,6 +9,7 @@ if (keyboard_check_pressed(ord("E")))
 
     SimulationRunning = !EditMode;
 }
+
 // ==========================================
 // CROSSWALK PLACEMENT MODE
 // ==========================================
@@ -36,20 +38,18 @@ if (PlaceCrosswalkMode)
         PreviewRoadNumber = 2;
     }
 
-    // Check if placement is valid
-    CanPlaceCrosswalk =
-        PreviewRoadNumber != 0 &&
-        PreviewX >= MapLeft &&
-        PreviewX <= MapRight &&
-        Money >= CrosswalkCost;
+    // Allow placement anywhere inside the map
+	CanPlaceCrosswalk =
+	    PreviewX >= MapLeft &&
+	    PreviewX <= MapRight &&
+	    Money >= CrosswalkCost;
 
     // Check for duplicates
     var _existing = false;
 
     with (oCrosswalk)
     {
-        if (abs(x - other.PreviewX) < 2 &&
-            RoadNumber == other.PreviewRoadNumber)
+        if (point_distance(x, y, other.PreviewX, other.PreviewY) < 2)
         {
             _existing = true;
         }
@@ -79,20 +79,65 @@ if (PlaceCrosswalkMode)
         }
     }
 }
+
 // ==========================================
-// SPAWN PEDESTRIANS
+// SPAWN PEDESTRIANS RANDOMLY
 // ==========================================
 
 if (!PedestriansSpawned)
 {
+    // Store previous spawn positions
+    var _spawnXs = [];
+    var _spawnYs = [];
+
     for (var i = 0; i < StartingPedestrians; i++)
     {
-        var _spawnX = PedestrianSpawnX + (i * 20);
-        var _spawnY = PedestrianSpawnY;
+        var _spawnX = 0;
+        var _spawnY = 0;
+        var _validPosition = false;
+        var _attempts = 0;
+
+        // Find a position that isn't too close
+        // to another pedestrian
+        while (!_validPosition && _attempts < 50)
+        {
+            _spawnX = irandom_range(
+                PedestrianSpawnMinX,
+                PedestrianSpawnMaxX
+            );
+
+            _spawnY = irandom_range(
+                PedestrianSpawnMinY,
+                PedestrianSpawnMaxY
+            );
+
+            _validPosition = true;
+
+            for (var j = 0; j < i; j++)
+            {
+                var _distance = point_distance(
+                    _spawnX, _spawnY,
+                    _spawnXs[j], _spawnYs[j]
+                );
+
+                if (_distance < 35)
+                {
+                    _validPosition = false;
+                    break;
+                }
+            }
+
+            _attempts++;
+        }
+
+        // Save position
+        _spawnXs[i] = _spawnX;
+        _spawnYs[i] = _spawnY;
 
         // Random pedestrian type
         var _type = choose(oGirl, oLola);
 
+        // Create pedestrian
         instance_create_layer(
             _spawnX,
             _spawnY,
@@ -103,5 +148,4 @@ if (!PedestriansSpawned)
 
     PedestriansSpawned = true;
 }
-
 

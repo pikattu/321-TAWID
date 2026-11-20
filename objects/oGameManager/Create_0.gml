@@ -1,4 +1,5 @@
-
+// Initialize random number generator
+randomize();
  // ==========================================
  // CROSSWALK PLACEMENT
  // ==========================================
@@ -19,6 +20,7 @@ Road2Bottom = 603;
 // Room boundaries
 MapLeft = 0;
 MapRight = room_width;
+
 
 // Placement layer
 CrosswalkLayer = "Instances";
@@ -41,9 +43,16 @@ CanPlaceCrosswalk = false;
 EditMode = true;
 SimulationRunning = false;
 
-StartingPedestrians = 5;
+StartingPedestrians = 10;
 PedestriansSpawned = false;
 
-// Spawn location
-PedestrianSpawnX = 100;
-PedestrianSpawnY = 700;
+// ==========================================
+// PEDESTRIAN SPAWN AREA
+// ==========================================
+
+PedestrianSpawnMinX = 100;
+PedestrianSpawnMaxX = room_width - 100;
+
+PedestrianSpawnMinY = room_height - 180;
+PedestrianSpawnMaxY = room_height - 40;
+

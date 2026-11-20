@@ -13,12 +13,12 @@ Patience = 150;
 MaxPatience = 150;
 
 AgeType = "elderly";
-VisionRange = 100;
+VisionRange = 150;
 
 Fatigue = 0;
-FatigueRate = 0.8;
+FatigueRate = 0.3;
 
-JaywalkTendency = 0.05;
+JaywalkTendency = 10.05;
 
 // ==========================================
 // MOVEMENT
